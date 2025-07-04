@@ -108,56 +108,55 @@
 
         <!-- Image Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <!-- Sample Images - Replace with actual images -->
-            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Appetizer+1'; lightboxCaption = 'Fried Egg Rolls (Cha Gio)'">
-                <img src="https://placehold.co/600x400/a83232/ffffff?text=Appetizer+1" alt="Fried Egg Rolls" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <p class="text-white text-lg font-semibold">Fried Egg Rolls</p>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Pho+1'; lightboxCaption = 'House Special Pho (Pho Dac Biet)'">
-                <img src="https://placehold.co/600x400/a83232/ffffff?text=Pho+1" alt="House Special Pho" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <p class="text-white text-lg font-semibold">House Special Pho</p>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Vermicelli+1'; lightboxCaption = 'Grilled Pork Vermicelli'">
-                <img src="https://placehold.co/600x400/a83232/ffffff?text=Vermicelli+1" alt="Grilled Pork Vermicelli" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <p class="text-white text-lg font-semibold">Vermicelli Bowl</p>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Rice+Plate+1'; lightboxCaption = 'Special Combination Rice Plate'">
-                <img src="https://placehold.co/600x400/a83232/ffffff?text=Rice+Plate+1" alt="Special Combination Rice Plate" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <p class="text-white text-lg font-semibold">Rice Plate</p>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Pho+2'; lightboxCaption = 'Chicken Pho (Pho Ga)'">
-                <img src="https://placehold.co/600x400/a83232/ffffff?text=Pho+2" alt="Chicken Pho" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <p class="text-white text-lg font-semibold">Chicken Pho</p>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Appetizer+2'; lightboxCaption = 'Fresh Spring Rolls'">
-                <img src="https://placehold.co/600x400/a83232/ffffff?text=Appetizer+2" alt="Fresh Spring Rolls" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <p class="text-white text-lg font-semibold">Spring Rolls</p>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Beverage+1'; lightboxCaption = 'Vietnamese Iced Coffee'">
-                <img src="https://placehold.co/600x400/a83232/ffffff?text=Beverage+1" alt="Vietnamese Iced Coffee" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <p class="text-white text-lg font-semibold">Iced Coffee</p>
-                </div>
-            </div>
-            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Pho+3'; lightboxCaption = 'Rare Steak Pho (Pho Tai)'">
-                <img src="https://placehold.co/600x400/a83232/ffffff?text=Pho+3" alt="Rare Steak Pho" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                    <p class="text-white text-lg font-semibold">Rare Steak Pho</p>
-                </div>
-            </div>
+    <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'assets/appetizer1.jpg'; lightboxCaption = 'Fried Egg Rolls (Cha Gio)'">
+        <img src="assets/appetizer1.jpg" alt="Fried Egg Rolls" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Fried Egg Rolls</p>
         </div>
+    </div>
+    <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'assets/pho1.jpg'; lightboxCaption = 'House Special Pho (Pho Dac Biet)'">
+        <img src="assets/pho1.jpg" alt="House Special Pho" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">House Special Pho</p>
+        </div>
+    </div>
+    <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'assets/vermicelli1.jpg'; lightboxCaption = 'Grilled Pork Vermicelli'">
+        <img src="assets/vermicelli1.jpg" alt="Grilled Pork Vermicelli" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Vermicelli Bowl</p>
+        </div>
+    </div>
+    <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'assets/riceplate1.jpg'; lightboxCaption = 'Special Combination Rice Plate'">
+        <img src="assets/riceplate1.jpg" alt="Special Combination Rice Plate" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Rice Plate</p>
+        </div>
+    </div>
+    <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'assets/pho2.jpg'; lightboxCaption = 'Chicken Pho (Pho Ga)'">
+        <img src="assets/pho2.jpg" alt="Chicken Pho" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Chicken Pho</p>
+        </div>
+    </div>
+    <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'assets/appetizer2.jpg'; lightboxCaption = 'Fresh Spring Rolls'">
+        <img src="assets/appetizer2.jpg" alt="Fresh Spring Rolls" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Spring Rolls</p>
+        </div>
+    </div>
+    <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'assets/beverage1.jpg'; lightboxCaption = 'Vietnamese Iced Coffee'">
+        <img src="assets/beverage1.jpg" alt="Vietnamese Iced Coffee" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Iced Coffee</p>
+        </div>
+    </div>
+    <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'assets/pho3.jpg'; lightboxCaption = 'Rare Steak Pho (Pho Tai)'">
+        <img src="assets/pho3.jpg" alt="Rare Steak Pho" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+        <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <p class="text-white text-lg font-semibold">Rare Steak Pho</p>
+        </div>
+    </div>
+</div>
     </main>
 
     <!-- Lightbox Modal -->
