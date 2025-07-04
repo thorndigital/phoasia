@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Pho Asia Noodle House</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter for body, Playfair Display for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        /* Custom styles to elevate the design */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7; /* A warm, creamy off-white */
+            color: #3D3D3D; /* Dark gray for text */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #C53030; /* A rich red */
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .menu-category {
+            border-bottom: 2px solid #A83232;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body x-data="{ mobileMenuOpen: false }">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-bold text-[#A83232]" style="font-family: 'Playfair Display', serif;">
+                    Pho Asia Noodle House
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-[#A83232]">Home</a>
+                    <a href="menu.html" class="nav-link active text-[#A83232] font-semibold">Menu</a>
+                    <a href="gallery.html" class="nav-link text-gray-700 hover:text-[#A83232]">Gallery</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-[#A83232]">Contact</a>
+                </nav>
+                
+                <a href="contact.html" class="hidden md:inline-block bg-[#C53030] text-white font-bold py-2 px-5 rounded-full hover:bg-[#A83232] transition-colors duration-300">
+                    Order Now
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden bg-white shadow-lg" x-transition>
+            <a href="index.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Home</a>
+            <a href="menu.html" class="block py-3 px-6 text-sm text-[#A83232] font-semibold bg-gray-100">Menu</a>
+            <a href="gallery.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Contact</a>
+            <div class="p-4">
+                 <a href="contact.html" class="w-full text-center block bg-[#C53030] text-white font-bold py-2 px-5 rounded-full hover:bg-[#A83232] transition-colors duration-300">
+                    Order Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#A83232]">Our Menu</h1>
+            <p class="text-lg text-gray-600 mt-2">Authentic recipes, fresh ingredients.</p>
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+            <!-- Appetizers -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 menu-category">Appetizers</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                    <div class="flex justify-between"><span class="font-semibold">A1. CHA GIO (Fried Egg Rolls) (3)</span><span class="font-bold text-[#A83232]">$6.50</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">A8. CHA GIO CHAY (Fried Veggie Egg Rolls) (2)</span><span class="font-bold text-[#A83232]">$6.50</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">A2. GOI CUON TOM THIT (2) (Fresh Spring Rolls with Pork and Shrimp)</span><span class="font-bold text-[#A83232]">$6.50</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">A7. CHEO QUAY (Chinese Doughnuts)</span><span class="font-bold text-[#A83232]">$4.00</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">A3. THIT GRIM (BBQ Pork Skewers) (3)</span><span class="font-bold text-[#A83232]">$7.25</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">A9. BANH XEP (Pot Stickers)</span><span class="font-bold text-[#A83232]">$6.50</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">A4. CHAO TOM (Sugarcane Shrimp) (2)</span><span class="font-bold text-[#A83232]">$8.80</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">A9. GA GRIM (BBQ Chicken Skewers) (3)</span><span class="font-bold text-[#A83232]">$7.25</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">A5. TOM GRIM (Shrimp Skewers) (2)</span><span class="font-bold text-[#A83232]">$6.50</span></div>
+                </div>
+            </section>
+
+            <!-- Pho Noodles Soup -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 menu-category">Pho Noodles Soup</h2>
+                <div class="text-sm text-gray-600 mb-4">All Pho includes Soup broth with your choice of meats, served with bean sprouts, basil, lime and jalapenos, topped with onions and cilantro.</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                    <div class="flex justify-between"><span class="font-semibold">1. PHO TAI (Eye round Steak)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">2. PHO TAI CHIN (Steak and Brisket)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">3. PHO TAI NAM (Steak and Flank)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">4. PHO TAI SACH (Steak and Tripe)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">5. PHO TAI GAN (Steak and Tendon)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">6. PHO CHIN NAM (Brisket and Flank)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">7. PHO CHIN GAN (Brisket and Tendon)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">8. PHO CHIN SACH (Brisket and Tripe)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">9. PHO TAI CHIN NAM (Steak, Brisket, and Flank)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">10. PHO TAI CHIN GAN (Steak, Brisket, and Tendon)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">11. PHO TAI CHIN SACH (Steak, Brisket, and Tripe)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">12. PHO TAI CHIN NAM GAN (Steak, Brisket, Flank, and Tendon)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">13. PHO TAI CHIN NAM SACH (Steak, Brisket, Flank, and Tripe)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">14. PHO TAI CHIN NAM GAN GAU (Steak, Brisket, Flank, Marble Brisket, Tendon, and Tripe)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">15. PHO DAC BIET (House Special)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">16. PLAIN NOODLES SOUP</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">17. PHO SEAFOOD (Shrimp, Fish, Fishballs, and Squid)</span><span class="font-bold text-[#A83232]">$16.00</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">V. PHO CHAY (Tofu and Veggie Pho)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">A. PHO GA (Chicken)</span></div>
+                    <div class="flex justify-between"><span class="font-semibold">B. PHO BO VIEN (Meatballs)</span></div>
+                </div>
+                 <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                    <div class="font-semibold">Small: <span class="font-bold text-[#A83232]">$13.00</span></div>
+                    <div class="font-semibold">Large: <span class="font-bold text-[#A83232]">$14.00</span></div>
+                    <div class="font-semibold">Side Ribs: <span class="font-bold text-[#A83232]">$2.00</span></div>
+                    <div class="font-semibold">Extra Sliced Onion: <span class="font-bold text-[#A83232]">$6.00</span></div>
+                </div>
+            </section>
+
+            <!-- Vermicelli & Rice -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Vermicelli Noodles -->
+                <section>
+                    <h2 class="text-3xl font-bold text-gray-800 menu-category">Vermicelli Noodles</h2>
+                    <div class="space-y-6">
+                        <div class="flex justify-between"><span class="font-semibold">B1. BUN CHA GIO THIT NUONG</span><span class="font-bold text-[#A83232]">$14.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">B2. BUN TOM THIT NUONG</span><span class="font-bold text-[#A83232]">$14.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">B3. BUN CHAO TOM THIT NUONG</span><span class="font-bold text-[#A83232]">$15.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">B4. BUN DAC BIET (House Special)</span><span class="font-bold text-[#A83232]">$18.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">B5. BUN CHAY</span><span class="font-bold text-[#A83232]">$14.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">B6. BUN CHA GIO CHAY DAU HU</span><span class="font-bold text-[#A83232]">$14.00</span></div>
+                    </div>
+                </section>
+
+                <!-- Rice Plates -->
+                <section>
+                    <h2 class="text-3xl font-bold text-gray-800 menu-category">Rice Plates</h2>
+                    <div class="space-y-6">
+                        <div class="flex justify-between"><span class="font-semibold">C1. COM CHIEN DAC BIET</span><span class="font-bold text-[#A83232]">$14.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">C2. COM TAM DAC BIET</span><span class="font-bold text-[#A83232]">$15.50</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">C3. COM GA NUONG</span><span class="font-bold text-[#A83232]">$14.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">C4. COM SUON BO NUONG</span><span class="font-bold text-[#A83232]">$17.50</span></div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Beverages & Dessert -->
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
+                <section>
+                    <h2 class="text-3xl font-bold text-gray-800 menu-category">Beverages</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                        <div class="flex justify-between"><span class="font-semibold">HOT TEA (per person)</span><span class="font-bold text-[#A83232]">$1.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">TRA DA CHANH (Fresh Iced Tea Limeade)</span><span class="font-bold text-[#A83232]">$6.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">TRA CUC (Hot Chrysanthemum Tea)</span><span class="font-bold text-[#A83232]">$4.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">NUOC DUA (Coconut Juice)</span><span class="font-bold text-[#A83232]">$6.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">TRA NHAI XANH (Hot Jasmine Green Tea)</span><span class="font-bold text-[#A83232]">$3.50</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">CAFE SUA DA (Vietnamese Iced Coffee)</span><span class="font-bold text-[#A83232]">$6.50</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">TRA BAC HA (Hot Peppermint Tea)</span><span class="font-bold text-[#A83232]">$3.50</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">SUA DAU NANH (Soy Milk)</span><span class="font-bold text-[#A83232]">$4.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">TRA THAI (Iced Thai Tea)</span><span class="font-bold text-[#A83232]">$6.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">SODAS</span><span class="font-bold text-[#A83232]">$4.00</span></div>
+                        <div class="flex justify-between"><span class="font-semibold">DA CHANH (Fresh Iced Limeade)</span><span class="font-bold text-[#A83232]">$6.00</span></div>
+                    </div>
+                </section>
+                <section>
+                    <h2 class="text-3xl font-bold text-gray-800 menu-category">Dessert</h2>
+                     <div class="flex justify-between"><span class="font-semibold">CHE BA MAU (Tri-color sweet beans with coconut milk and pan-dan jelly)</span><span class="font-bold text-[#A83232]">$6.50</span></div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#3D3D3D] text-white mt-16">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Pho Asia Noodle House</h3>
+                    <p class="text-gray-400">Your destination for authentic Vietnamese food and noodles in Everett, WA.</p>
+                </div>
+                <!-- Navigation -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="text-gray-300 hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Contact Us</h3>
+                    <address class="not-italic text-gray-300 space-y-2">
+                        <p>607 SE Everett Mall Way, Suite 11<br>Everett, WA 98208-3211</p>
+                        <p>
+                            Phone: <a href="tel:4253483646" class="hover:text-white">(425) 348-3646</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; <span id="currentYear"></span> Pho Asia Noodle House. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
