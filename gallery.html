@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Pho Asia Noodle House</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter for body, Playfair Display for headings -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        /* Custom styles to elevate the design */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7; /* A warm, creamy off-white */
+            color: #3D3D3D; /* Dark gray for text */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #C53030; /* A rich red */
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .gallery-item .overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body x-data="{ mobileMenuOpen: false, lightboxOpen: false, lightboxImage: '', lightboxCaption: '' }">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-bold text-[#A83232]" style="font-family: 'Playfair Display', serif;">
+                    Pho Asia Noodle House
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-[#A83232]">Home</a>
+                    <a href="menu.html" class="nav-link text-gray-700 hover:text-[#A83232]">Menu</a>
+                    <a href="gallery.html" class="nav-link active text-[#A83232] font-semibold">Gallery</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-[#A83232]">Contact</a>
+                </nav>
+                
+                <a href="contact.html" class="hidden md:inline-block bg-[#C53030] text-white font-bold py-2 px-5 rounded-full hover:bg-[#A83232] transition-colors duration-300">
+                    Order Now
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" @click.away="mobileMenuOpen = false" class="md:hidden bg-white shadow-lg" x-transition>
+            <a href="index.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Home</a>
+            <a href="menu.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Menu</a>
+            <a href="gallery.html" class="block py-3 px-6 text-sm text-[#A83232] font-semibold bg-gray-100">Gallery</a>
+            <a href="contact.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Contact</a>
+            <div class="p-4">
+                 <a href="contact.html" class="w-full text-center block bg-[#C53030] text-white font-bold py-2 px-5 rounded-full hover:bg-[#A83232] transition-colors duration-300">
+                    Order Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#A83232]">Our Gallery</h1>
+            <p class="text-lg text-gray-600 mt-2">A glimpse of the deliciousness that awaits you.</p>
+        </div>
+
+        <!-- Image Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Sample Images - Replace with actual images -->
+            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Appetizer+1'; lightboxCaption = 'Fried Egg Rolls (Cha Gio)'">
+                <img src="https://placehold.co/600x400/a83232/ffffff?text=Appetizer+1" alt="Fried Egg Rolls" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-white text-lg font-semibold">Fried Egg Rolls</p>
+                </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Pho+1'; lightboxCaption = 'House Special Pho (Pho Dac Biet)'">
+                <img src="https://placehold.co/600x400/a83232/ffffff?text=Pho+1" alt="House Special Pho" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-white text-lg font-semibold">House Special Pho</p>
+                </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Vermicelli+1'; lightboxCaption = 'Grilled Pork Vermicelli'">
+                <img src="https://placehold.co/600x400/a83232/ffffff?text=Vermicelli+1" alt="Grilled Pork Vermicelli" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-white text-lg font-semibold">Vermicelli Bowl</p>
+                </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Rice+Plate+1'; lightboxCaption = 'Special Combination Rice Plate'">
+                <img src="https://placehold.co/600x400/a83232/ffffff?text=Rice+Plate+1" alt="Special Combination Rice Plate" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-white text-lg font-semibold">Rice Plate</p>
+                </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Pho+2'; lightboxCaption = 'Chicken Pho (Pho Ga)'">
+                <img src="https://placehold.co/600x400/a83232/ffffff?text=Pho+2" alt="Chicken Pho" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-white text-lg font-semibold">Chicken Pho</p>
+                </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Appetizer+2'; lightboxCaption = 'Fresh Spring Rolls'">
+                <img src="https://placehold.co/600x400/a83232/ffffff?text=Appetizer+2" alt="Fresh Spring Rolls" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-white text-lg font-semibold">Spring Rolls</p>
+                </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Beverage+1'; lightboxCaption = 'Vietnamese Iced Coffee'">
+                <img src="https://placehold.co/600x400/a83232/ffffff?text=Beverage+1" alt="Vietnamese Iced Coffee" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-white text-lg font-semibold">Iced Coffee</p>
+                </div>
+            </div>
+            <div class="gallery-item group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" @click="lightboxOpen = true; lightboxImage = 'https://placehold.co/800x600/a83232/ffffff?text=Pho+3'; lightboxCaption = 'Rare Steak Pho (Pho Tai)'">
+                <img src="https://placehold.co/600x400/a83232/ffffff?text=Pho+3" alt="Rare Steak Pho" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                <div class="overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                    <p class="text-white text-lg font-semibold">Rare Steak Pho</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div x-show="lightboxOpen" @keydown.escape.window="lightboxOpen = false" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4" x-transition.opacity>
+        <div @click.away="lightboxOpen = false" class="relative bg-white p-4 rounded-lg shadow-2xl max-w-4xl max-h-full">
+            <button @click="lightboxOpen = false" class="absolute -top-4 -right-4 bg-white rounded-full p-1 text-gray-800 hover:bg-gray-200 z-10">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <img :src="lightboxImage" :alt="lightboxCaption" class="w-full h-auto object-contain" style="max-height: 80vh;">
+            <p x-text="lightboxCaption" class="text-center mt-4 text-lg font-medium text-gray-800"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#3D3D3D] text-white mt-16">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- About -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Pho Asia Noodle House</h3>
+                    <p class="text-gray-400">Your destination for authentic Vietnamese food and noodles in Everett, WA.</p>
+                </div>
+                <!-- Navigation -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="menu.html" class="text-gray-300 hover:text-white transition-colors">Menu</a></li>
+                        <li><a href="gallery.html" class="text-gray-300 hover:text-white transition-colors">Gallery</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Contact Us</h3>
+                    <address class="not-italic text-gray-300 space-y-2">
+                        <p>607 SE Everett Mall Way, Suite 11<br>Everett, WA 98208-3211</p>
+                        <p>
+                            Phone: <a href="tel:4253483646" class="hover:text-white">(425) 348-3646</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500 text-sm">
+                <p>&copy; <span id="currentYear"></span> Pho Asia Noodle House. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
