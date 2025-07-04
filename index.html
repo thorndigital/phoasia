@@ -17,55 +17,56 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <style>
-        /* Custom styles to elevate the design */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #FDFBF7; /* A warm, creamy off-white */
-            color: #3D3D3D; /* Dark gray for text */
-        }
+    /* Custom styles to elevate the design */
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #FDFBF7; /* A warm, creamy off-white */
+        color: #3D3D3D; /* Dark gray for text */
+    }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-        }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+    }
 
-        .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://placehold.co/1600x900/a83232/ffffff?text=Delicious+Bowl+of+Pho');
-            background-size: cover;
-            background-position: center;
-        }
+    .hero-bg {
+        /* Changed the URL to your specified image path */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/homephobg.jpg');
+        background-size: cover;
+        background-position: center;
+    }
 
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
+    .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+    }
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #C53030; /* A rich red */
-            transition: width 0.3s ease;
-        }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #C53030; /* A rich red */
+        transition: width 0.3s ease;
+    }
 
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-        
-        /* Animation for elements on scroll */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
+    .nav-link:hover::after, .nav-link.active::after {
+        width: 100%;
+    }
+    
+    /* Animation for elements on scroll */
+    .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
 
-        .reveal-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
     </style>
 </head>
 <body x-data="{ mobileMenuOpen: false }">
